@@ -91,7 +91,6 @@ nav{
 @media (min-width: 700px) {
   .container {
     display: grid;
-    /*grid-template-columns: 20% 10% 10% 15% 10% 10% 10% 10%;*/
     grid-template-columns: 30% 10% 60%;
     grid-template-rows: 20% 60% 10% 10%;
     justify-content: space-between;
@@ -112,7 +111,7 @@ nav{
   .menu {
     visibility: visible;
     font-size: 1rem;
-  
+    padding: 0.25em 0;
     grid-column: 5/6;
   }
   .hamburger {
