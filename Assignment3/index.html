@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Weather App</title>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h3>Weather App</h3>
+        <p>
+          Get weather notifications by adding the city and country code below
+        </p>
+        <div class="addCity">
+          <form id="form1">
+            <input
+              class="textbox"
+              id="tb1"
+              name="city"
+              type="text"
+              placeholder="Enter a city"
+              autofocus
+            />
+            <input
+              class="textbox"
+              id="tb2"
+              name="country"
+              type="text"
+              placeholder="Enter a country code"
+            />
+            <button class="btn" type="submit">Go</button>
+            <span class="msg"></span>
+          </form>
+        </div>
+      </header>
+      <div class="places"></div>
+    </div>
+  </body>
+</html>
