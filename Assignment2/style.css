@@ -4,12 +4,21 @@
 }
 body {
   margin: 0;
-  background-color: #262626;
+  border: 1em solid #262626;
+  background-color: #0d0d0d;
   font-family: "Roboto", sans-serif;
-  overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #353535);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #7b7b7b);
 }
 .container {
-  margin: 1em;
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 100%;
@@ -61,10 +70,12 @@ header a {
 }
 .main-content {
   grid-area: contents;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 1em;
-  background-color: #0d0d0d;
   display: grid;
   grid-template-rows: auto auto;
+  grid-template-columns: 100%;
   grid-template-areas:
     "gal"
     "art";
@@ -183,9 +194,9 @@ header a {
   font-weight: bold;
   font-size: 3vw;
   text-align: center;
+  padding: 0.5em 0;
 }
-.smiley,
-.rsidebar {
+.smiley {
   display: none;
 }
 .red {
@@ -242,7 +253,7 @@ header a {
 }
 .prof {
   font-size: 2vw;
-  flex-basis: 15%;
+  flex-basis: 10%;
   margin-top: 1rem;
 }
 .small {
@@ -250,46 +261,71 @@ header a {
   font-size: 1.5vw;
 }
 .more {
-  flex-basis: 5%;
+  flex-basis: 10%;
   text-decoration: none;
   color: rgb(185, 184, 184);
   font-size: 3vw;
   font-weight: bold;
   margin-top: 1rem;
 }
-.book {
+.book,
+.book1 {
   margin-top: 1rem;
-  background-color: rgb(51, 5, 51);
   display: grid;
-  grid-template-columns: 90% 6% 4%;
+  grid-template-columns: 100%;
   grid-template-rows: auto auto;
-  grid-gap: 1rem 0;
+  grid-row-gap: 1rem;
 }
-.book h4 {
+.book {
+  background-color: rgb(51, 5, 51);
+}
+.book1 {
+  background-color: rgb(197, 18, 63);
+}
+.book h4,
+.book1 h4 {
   grid-row: 1;
-  grid-column: 1 / span2;
+  grid-column: 1;
   padding-top: 1rem;
   text-align: center;
   align-self: end;
   z-index: 3;
 }
-.book-pic {
+.book-pic,
+.book-pic1 {
   grid-row: 2;
-  grid-column: 1 / span2;
-  background-color: violet;
+  grid-column: 1;
   width: 75%;
   height: 30vh;
   justify-self: center;
 }
+.book-pic {
+  background-color: violet;
+}
+.book-pic1 {
+  background-color: rgb(243, 94, 8);
+}
 .plus-msg {
-  grid-row: 2;
-  grid-column: 2/4;
+  position: fixed;
   font-size: 2.5vw;
-  align-self: end;
+  top: 85vh;
+  right: 2vw;
   z-index: 5;
+}
+.line2:hover {
+  background-color: #353535;
+}
+.facebook:hover {
+  color: rgb(49, 130, 252);
+}
+.gal-items:hover {
+  background-color: rgb(251, 77, 77);
 }
 
 @media screen and (min-width: 720px) {
+  body {
+    overflow-y: hidden;
+  }
   .container {
     position: relative;
     grid-template-rows: auto auto;
@@ -319,7 +355,7 @@ header a {
   }
   .main-nav a {
     text-decoration: none;
-    font-size: 1.5vw;
+    font-size: 3vw;
     color: rgb(185, 184, 184);
   }
   .icon1 {
@@ -371,7 +407,7 @@ header a {
     height: 5px;
     background: rgb(0, 102, 255);
     position: absolute;
-    top: 3.5vw;
+    top: 4vw;
     right: 0;
     left: 0;
     transform: scale(0, 1);
@@ -390,11 +426,15 @@ header a {
     border-radius: 50%;
     height: 5px;
     width: 5px;
-    top: 3vw;
+    top: 3.5vw;
     right: 1.25vw;
   }
   .main-content {
     grid-area: contents;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-color: #353535 #353535;
+    scrollbar-width: thin;
   }
   .image1,
   .image2,
@@ -407,17 +447,18 @@ header a {
     display: inline-block;
   }
   .gal-items {
-    height: 20vw;
+    height: 100%;
   }
   .pro-pic {
     width: 2vw;
     height: 2vw;
   }
   .h-scroll {
-    font-size: 0.9rem;
+    font-size: 1.5vw;
   }
   .pro-name {
     font-size: 2vw;
+    padding: 0.5em 0;
   }
   #my-post1 {
     width: 95%;
@@ -450,6 +491,9 @@ header a {
   .prof {
     font-size: 1vw;
   }
+  .cross {
+    font-size: 0.75vw;
+  }
   .my-pro {
     align-self: center;
   }
@@ -458,9 +502,10 @@ header a {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: start;
+    align-items: flex-start;
     color: rgb(185, 184, 184);
     background-color: #0d0d0d;
+    padding-right: 0.5em;
   }
   .bday {
     padding: 0.5em;
@@ -503,7 +548,7 @@ header a {
     margin-top: 0;
     text-decoration: none;
     color: rgb(185, 184, 184);
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
   .contact-list {
     display: flex;
@@ -544,26 +589,37 @@ header a {
     padding: 0 0.5em;
     font-size: 1.5vw;
     align-self: center;
+    text-decoration: none;
+    color: rgb(185, 184, 184);
+  }
+  .online:hover {
+    background-color: #262626;
   }
   .plus-msg {
-    font-size: 1rem;
-    position: absolute;
-    bottom: 2vw;
+    font-size: 1.5vw;
+    position: fixed;
+    top: 85vh;
     right: 1.5vw;
   }
 }
 @media screen and (min-width: 1200px) {
+  body {
+    overflow-y: hidden;
+  }
   .container {
     position: relative;
     grid-template-rows: auto auto;
-    grid-template-columns: 1.2fr 2fr 1.2fr;
-    column-gap: 0.2fr;
+    grid-template-columns: 1.2fr 0.3fr 2fr 0.3fr 1.2fr;
     grid-template-areas:
-      "head head head"
-      "left contents right";
+      "head head head head head"
+      "left . contents . right";
   }
   .main-content {
     grid-area: contents;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #353535 #353535;
   }
   .rsidebar {
     grid-area: right;
@@ -581,9 +637,11 @@ header a {
       );
     padding: 0.5em;
   }
-  header a,
-  main-nav a {
+  header a {
     font-size: 0.75vw;
+  }
+  .nav-size {
+    font-size: 2vw;
   }
   .icon1,
   .my-profile {
@@ -594,7 +652,6 @@ header a {
   }
   .icon1 a {
     text-decoration: none;
-
     color: rgb(185, 184, 184);
   }
   .menu {
@@ -665,18 +722,24 @@ header a {
     font-size: 1vw;
     font-weight: bold;
   }
+  .videos div,
+  .icon1 div {
+    top: 3.5vw;
+    right: 0.75vw;
+  }
   .gal-items {
-    height: 15vw;
+    height: 100%;
   }
   .pro-pic {
     width: 1.5vw;
     height: 1.5vw;
   }
   .h-scroll {
-    font-size: 1rem;
+    font-size: 1vw;
   }
   .pro-name {
     font-size: 1.25vw;
+    padding: 0.5em 0;
   }
   .my-profile {
     display: flex;
@@ -685,40 +748,62 @@ header a {
     justify-items: center;
     color: rgb(185, 184, 184);
   }
+  #my-post1 {
+    padding: 0.5vw;
+  }
   .my-pro,
   .prof {
     font-size: 0.75vw;
-  }
-  .my-pro {
     align-self: center;
   }
-  #my-post1 {
-    font-size: 1.5vw;
+  .prof {
+    margin-top: 0;
   }
   .line2 {
     flex-basis: 33%;
-    font-size: 1.25vw;
+    font-size: 1vw;
     padding-bottom: 0.5em 0;
   }
-  .undo {
-    font-size: 1.5vw;
+  .cross {
+    font-size: 0.5vw;
+  }
+  .undo,
+  .more {
+    font-size: 1vw;
   }
   #my-post1,
   .post h4,
   .post p,
   .post1 h4,
   .post1 p {
-    font-size: 1.5vw;
+    font-size: 1vw;
   }
   .status {
     top: 13px;
     right: -1px;
   }
   .plus-msg {
-    font-size: 1rem;
-    position: absolute;
-    bottom: 2vw;
+    font-size: 1vw;
+    position: fixed;
+    top: 85vh;
     right: 1.5vw;
+  }
+  .bday,
+  .contact,
+  .birthday {
+    font-size: 1vw;
+  }
+  .gift {
+    font-size: 1.5vw;
+  }
+  .videocall,
+  .rsearch,
+  .more1,
+  .cname {
+    font-size: 1vw;
+  }
+  #small {
+    font-size: 0.75vw;
   }
   .lsidebar {
     display: flex;
@@ -736,13 +821,13 @@ header a {
   }
   .lside > i {
     grid-column: 1;
-    font-size: 1.5vw;
+    font-size: 1.25vw;
   }
   .lsidebar a {
     grid-column: 2;
     text-decoration: none;
     color: rgb(185, 184, 184);
-    font-size: 1.5vw;
+    font-size: 1vw;
     padding-left: 0.75em;
   }
   .lsidebar {
@@ -752,8 +837,8 @@ header a {
     width: 90%;
   }
   .scut {
-    font-size: 2vw;
-    padding-left: 0;
+    font-size: 1vw;
+    padding: 0.5em 0.5em 0.5em 0;
     border-top: 3px solid #353535;
   }
   .see {
@@ -780,5 +865,9 @@ header a {
     width: 1vw;
     top: 0;
     right: 0;
+  }
+  .lside:hover,
+  .see:hover {
+    background-color: #262626;
   }
 }
