@@ -21,13 +21,18 @@ function Login() {
   const submitLogin = (e) => {
     e.preventDefault();
     const userDets = JSON.parse(localStorage.getItem("register"));
-    const { uname, pwd } = userDets;
-    if (uname === userName && pwd === password) {
-      sessionStorage.setItem("Username", uname);
-      return history.push("/dashboard");
+    if (!userDets) {
+      setErrorMesg("Register a user first");
+      handleClick(e);
+    } else {
+      const { uname, pwd } = userDets;
+      if (uname === userName && pwd === password) {
+        sessionStorage.setItem("Username", uname);
+        return history.push("/dashboard");
+      }
+      setErrorMesg("Invalid Login... Try Again");
+      handleClick(e);
     }
-    setErrorMesg("Invalid Login... Try Again");
-    handleClick(e);
   };
 
   return (
