@@ -88,6 +88,34 @@ body {
   grid-row: 4;
   grid-column: 1/-1;
 }
+.container1,
+.container1::before,
+.container1::after {
+  box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.container1::before,
+.container1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.container1::before {
+  left: 7px;
+  top: 5px;
+  z-index: -1;
+  background-color: #fd7272;
+}
+
+.container1::after {
+  left: 12px;
+  top: 10px;
+  z-index: -2;
+  background-color: #fd4444;
+}
 @media screen and (max-width: 600px) {
   .container1 {
     width: 90%;

@@ -120,6 +120,41 @@ body {
 .err-btn1:hover {
   background: #ff0303;
 }
+.l-container,
+.l-container::before,
+.l-container::after,
+.err-container1,
+.err-container1::before,
+.err-container1::after {
+  box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.l-container::before,
+.l-container::after,
+.err-container1::before,
+.err-container1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.l-container::before,
+.err-container1::before {
+  left: 7px;
+  top: 5px;
+  z-index: -1;
+  background-color: #fd7272;
+}
+
+.l-container::after,
+.err-container1::after {
+  left: 12px;
+  top: 10px;
+  z-index: -2;
+  background-color: #fd4444;
+}
 @media screen and (max-width: 600px) {
   .l-container,
   .err-container1 {
