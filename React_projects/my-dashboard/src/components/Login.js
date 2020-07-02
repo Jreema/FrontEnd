@@ -28,7 +28,7 @@ function Login() {
       const { uname, pwd } = userDets;
       if (uname === userName && pwd === password) {
         sessionStorage.setItem("Username", uname);
-        return history.push("/dashboard");
+        return history.push("/dashboard", { params: uname });
       }
       setErrorMesg("Invalid Login... Try Again");
       handleClick(e);

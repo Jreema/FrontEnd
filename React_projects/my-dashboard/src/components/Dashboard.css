@@ -116,6 +116,7 @@ body {
   z-index: -2;
   background-color: #fd4444;
 }
+
 @media screen and (max-width: 600px) {
   .container1 {
     width: 90%;

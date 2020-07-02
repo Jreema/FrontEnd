@@ -29,7 +29,7 @@ function Register(props) {
     if (uname.trim() != "" && pwd.trim() != "") {
       localStorage.setItem("register", JSON.stringify({ uname, pwd }));
       sessionStorage.setItem("Username", uname);
-      history.push("/dashboard");
+      history.push("/dashboard", { params: uname });
     } else {
       setErrorMesg("Enter a value");
       handleClick(e);

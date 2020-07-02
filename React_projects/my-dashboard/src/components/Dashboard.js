@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { Input } from "antd";
 import { Table } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "./Dashboard.css";
 
-function Dashboard() {
+function Dashboard(props) {
   const history = useHistory();
   const [cityInfo, setCityInfo] = useState([]);
   const [searchField, setSearchField] = useState("");
   const [filteredCities, setFilteredCities] = useState([]);
-
+  const location = useLocation();
   useEffect(() => {
-    const user = sessionStorage.getItem("Username");
+    const user = location.state.params;
     if (user) {
       fetchItems();
     } else {
