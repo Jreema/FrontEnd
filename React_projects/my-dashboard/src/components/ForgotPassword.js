@@ -28,14 +28,19 @@ function ForgotPassword() {
         handleClick();
       } else {
         const userDets = JSON.parse(localStorage.getItem("register"));
-        if (uname.trim() != userDets.uname) {
-          setErrorMesg("User Does Not Exist");
+        if (!userDets) {
+          setErrorMesg("Register a user first");
           handleClick();
         } else {
-          localStorage.setItem("register", JSON.stringify({ uname, pwd }));
-          sessionStorage.removeItem("Username");
-          setErrorMesg("Password Sucessfully Changed");
-          handleClick();
+          if (uname.trim() != userDets.uname) {
+            setErrorMesg("User Does Not Exist");
+            handleClick();
+          } else {
+            localStorage.setItem("register", JSON.stringify({ uname, pwd }));
+            sessionStorage.removeItem("Username");
+            setErrorMesg("Password Sucessfully Changed");
+            handleClick();
+          }
         }
       }
     }
