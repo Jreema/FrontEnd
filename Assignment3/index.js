@@ -1,4 +1,4 @@
-const key = "FHc5KFjGAuy7L9wR0KPPnfhNg8yikHWJ";
+const key = "";
 const form1 = document.querySelector("#form1");
 
 let count = 0;
